@@ -41,7 +41,7 @@ class RealEstateItem(Item):
     re_area = Field(input_processor=MapCompose(convert_float), output_processor=TakeFirst())
     re_area_to_use = Field(input_processor=MapCompose(convert_float), output_processor=TakeFirst())
 
-    re_orientation = Field(input_processor=MapCompose(str.strip), output_processor=TakeFirst())
+    re_direction = Field(input_processor=MapCompose(str.strip), output_processor=TakeFirst())
     re_legal = Field(input_processor=MapCompose(str.strip), output_processor=TakeFirst())
 
     re_num_floors = Field(input_processor=MapCompose(convert_int), output_processor=TakeFirst())

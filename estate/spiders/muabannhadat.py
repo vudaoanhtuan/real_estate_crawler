@@ -66,8 +66,8 @@ class MuaBanNhaDatSpider(scrapy.Spider):
         try: re_area_to_use = json_data['listing']['listing']['data_properties']['area_value']['value']
         except: re_area_to_use = ''
 
-        try: re_orientation = json_data['listing']['listing']['data_properties']['direction']['value']
-        except: re_orientation = ''
+        try: re_direction = json_data['listing']['listing']['data_properties']['direction']['value']
+        except: re_direction = ''
 
         try: re_legal = json_data['listing']['listing']['data_properties']['legal_document']['value']
         except: re_legal = ''
@@ -122,7 +122,7 @@ class MuaBanNhaDatSpider(scrapy.Spider):
         loader.add_value('re_length', re_length)
         loader.add_value('re_area_to_use', re_area_to_use)
 
-        loader.add_value('re_orientation', re_orientation)
+        loader.add_value('re_direction', re_direction)
         loader.add_value('re_legal', re_legal)
 
         loader.add_value('re_num_floors', re_num_floors)
