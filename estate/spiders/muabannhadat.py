@@ -16,7 +16,7 @@ class MuaBanNhaDatSpider(scrapy.Spider):
             full_url = urllib.parse.urljoin(main_url, url)
             yield scrapy.Request(full_url, callback=self.parse_post)
         
-        next_link = response.xpath('//a[@class="page-link" and @aria-label="Next"]/@href').get()
+        next_link = response.xpath('//a[@aria-label="Next"]/@href').get()
         if next_link:
             # if '3' in next_link: 
             #     return
