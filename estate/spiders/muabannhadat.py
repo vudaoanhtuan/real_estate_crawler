@@ -3,6 +3,7 @@ from scrapy.loader import ItemLoader
 from estate.items import RealEstateItem
 import json
 import urllib
+import logging
 
 class MuaBanNhaDatSpider(scrapy.Spider):
     name = "muabannhadat"
@@ -20,6 +21,7 @@ class MuaBanNhaDatSpider(scrapy.Spider):
         if next_link:
             # if '3' in next_link: 
             #     return
+            logging.info("===> Next: %s" % next_link)
             next_link = urllib.parse.urljoin(main_url, next_link)
             yield scrapy.Request(next_link, callback=self.parse)
 
