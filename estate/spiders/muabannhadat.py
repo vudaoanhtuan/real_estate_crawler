@@ -37,7 +37,7 @@ class MuaBanNhaDatSpider(scrapy.Spider):
         try: post_date = json_data['listing']['listing']['updated_at']
         except: post_date = ''
 
-        try: post_detail = json_data['listing']['listing']['title'] + json_data['listing']['listing']['description']
+        try: post_detail = json_data['listing']['listing']['title'] + '\n' + json_data['listing']['listing']['description']
         except: post_detail = ''
 
 
@@ -55,29 +55,29 @@ class MuaBanNhaDatSpider(scrapy.Spider):
         except: re_type = ''
 
         try: re_price = json_data['listing']['listing']['price']
-        except: re_price = 0
+        except: re_price = ''
 
         try: re_width = json_data['listing']['listing']['data_properties']['width']['value']
-        except: re_width = 0
+        except: re_width = ''
 
         try: re_length = json_data['listing']['listing']['data_properties']['length']['value']
-        except: re_length = 0
+        except: re_length = ''
 
         try: re_legal = json_data['listing']['listing']['data_properties']['legal_document']['value']
         except: re_legal = ''
 
 
         try: re_num_floors = json_data['listing']['listing']['data_properties']['level_count']['value']
-        except: re_num_floors = 0
+        except: re_num_floors = ''
 
         try: re_area_to_use = json_data['listing']['listing']['data_properties']['area_value']['value']
-        except: re_area_to_use = 0
+        except: re_area_to_use = ''
 
         try: re_bedroom = json_data['listing']['listing']['data_properties']['bedroom_count']['value']
-        except: re_bedroom = 0
+        except: re_bedroom = ''
 
         try: re_bathroom = json_data['listing']['listing']['data_properties']['bathroom_count']['value']
-        except: re_bathroom = 0
+        except: re_bathroom = ''
 
         try: re_addr_city = json_data['listing']['listing']['address']['city']['title']
         except: re_addr_city = ''

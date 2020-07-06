@@ -12,12 +12,12 @@ from datetime import datetime
 
 def convert_float(text):
     try: text = float(text)
-    except: text = 0.0
+    except: pass
     return text
 
 def convert_int(text):
     try: text = int(text)
-    except: text = 0
+    except: pass
     return text
 
 
@@ -34,17 +34,17 @@ class RealEstateItem(Item):
     post_images = Field()
 
     re_type = Field(input_processor=MapCompose(str.strip), output_processor=TakeFirst())
-    re_price = Field(output_processor=TakeFirst())
+    re_price = Field(input_processor=MapCompose(str.strip), output_processor=TakeFirst())
 
-    re_area = Field(input_processor=MapCompose(convert_float), output_processor=TakeFirst())
     re_width = Field(input_processor=MapCompose(convert_float), output_processor=TakeFirst())
     re_length = Field(input_processor=MapCompose(convert_float), output_processor=TakeFirst())
+    re_area = Field(input_processor=MapCompose(convert_float), output_processor=TakeFirst())
+    re_area_to_use = Field(input_processor=MapCompose(convert_float), output_processor=TakeFirst())
 
     re_orientation = Field(input_processor=MapCompose(str.strip), output_processor=TakeFirst())
     re_legal = Field(input_processor=MapCompose(str.strip), output_processor=TakeFirst())
 
     re_num_floors = Field(input_processor=MapCompose(convert_int), output_processor=TakeFirst())
-    re_area_to_use = Field(input_processor=MapCompose(convert_float), output_processor=TakeFirst())
     re_bathroom = Field(input_processor=MapCompose(convert_int), output_processor=TakeFirst())
     re_bedroom = Field(input_processor=MapCompose(convert_int), output_processor=TakeFirst())
     
