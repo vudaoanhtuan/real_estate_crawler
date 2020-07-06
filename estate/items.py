@@ -11,7 +11,7 @@ from datetime import datetime
 
 
 def convert_float(text):
-    try: text = int(text)
+    try: text = float(text)
     except: text = 0.0
     return text
 
