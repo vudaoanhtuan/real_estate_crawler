@@ -12,7 +12,7 @@ from datetime import datetime
 
 def strip_text(text):
     try: text = str.strip(text)
-    else: pass
+    except: pass
     return text
 
 def convert_float(text):
