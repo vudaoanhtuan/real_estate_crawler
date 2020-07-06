@@ -37,7 +37,7 @@ class MuaBanNhaDatSpider(scrapy.Spider):
         try: post_date = json_data['listing']['listing']['updated_at']
         except: post_date = ''
 
-        try: post_detail = json_data['listing']['listing']['description']
+        try: post_detail = json_data['listing']['listing']['title'] + json_data['listing']['listing']['description']
         except: post_detail = ''
 
 
