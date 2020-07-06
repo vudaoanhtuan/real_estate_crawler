@@ -63,15 +63,18 @@ class MuaBanNhaDatSpider(scrapy.Spider):
         try: re_length = json_data['listing']['listing']['data_properties']['length']['value']
         except: re_length = ''
 
+        try: re_area_to_use = json_data['listing']['listing']['data_properties']['area_value']['value']
+        except: re_area_to_use = ''
+
+        try: re_orientation = json_data['listing']['listing']['data_properties']['direction']['value']
+        except: re_orientation = ''
+
         try: re_legal = json_data['listing']['listing']['data_properties']['legal_document']['value']
         except: re_legal = ''
 
 
         try: re_num_floors = json_data['listing']['listing']['data_properties']['level_count']['value']
         except: re_num_floors = ''
-
-        try: re_area_to_use = json_data['listing']['listing']['data_properties']['area_value']['value']
-        except: re_area_to_use = ''
 
         try: re_bedroom = json_data['listing']['listing']['data_properties']['bedroom_count']['value']
         except: re_bedroom = ''
@@ -117,11 +120,12 @@ class MuaBanNhaDatSpider(scrapy.Spider):
 
         loader.add_value('re_width', re_width)
         loader.add_value('re_length', re_length)
+        loader.add_value('re_area_to_use', re_area_to_use)
 
+        loader.add_value('re_orientation', re_orientation)
         loader.add_value('re_legal', re_legal)
 
         loader.add_value('re_num_floors', re_num_floors)
-        loader.add_value('re_area_to_use', re_area_to_use)
         loader.add_value('re_bathroom', re_bathroom)
         loader.add_value('re_bedroom', re_bedroom)
         
