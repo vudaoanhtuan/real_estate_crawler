@@ -12,7 +12,6 @@ settings = get_project_settings()
 
 class CalculateAreaPipeline(object):
     def process_item(self, item, spider):
-        import pdb; pdb.set_trace()
         try:
             if 're_area' not in item or not isinstance(item['re_area'], float):
                 if isinstance(item['re_width'], float) and isinstance(item['re_length'], float):
