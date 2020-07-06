@@ -21,9 +21,8 @@ LOG_LEVEL = 'INFO'
 FEED_EXPORT_ENCODING = 'utf-8'
 
 # Database
-CONNECTION_STRING = ''
-DB_NAME = ''
-
+CONNECTION_STRING = 'mongodb://localhost:27017'
+DB_NAME = 'real_estate'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'estate (+http://www.yourdomain.com)'
@@ -75,7 +74,8 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    # 'estate.pipelines.SavePostPipeline': 200
+    'estate.pipelines.CalculateAreaPipeline': 100,
+    'estate.pipelines.SavePostPipeline': 200
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
