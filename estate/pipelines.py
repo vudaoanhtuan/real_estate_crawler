@@ -12,14 +12,13 @@ settings = get_project_settings()
 
 class CalculateAreaPipeline(object):
     def process_item(self, item, spider):
-        try:
-            if 're_area' not in item or not isinstance(item['re_area'], float):
-                if isinstance(item['re_width'], float) and isinstance(item['re_length'], float):
-                    item['re_area'] = item['re_width'] * item['re_length']
-                else:
-                    item['re_area'] = item['re_area_to_use']
-        except:
-            pass
+        if 're_area' not in item or not isinstance(item['re_area'], float):
+            if 're_width' in item and 're_length' in item and \
+                isinstance(item['re_width'], float) and isinstance(item['re_length'], float):
+                item['re_area'] = item['re_width'] * item['re_length']
+            elif 're_area_to_use' in item:
+                item['re_area'] = item['re_area_to_use']
+
         return item
 
 class SavePostPipeline(object):
