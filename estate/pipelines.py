@@ -10,6 +10,18 @@ from scrapy.utils.project import get_project_settings
 
 settings = get_project_settings()
 
+class CalculateAreaPipeline(object):
+    def process_item(self, item, spider):
+        try:
+            if not isinstance(item['re_area'], float):
+                if isinstance(item['re_width'], float) and isinstance(item['re_length'], float):
+                    item['re_area'] = item['re_width'] * item['re_length']
+                else:
+                    item['re_area'] = item['re_area_to_use']
+        except:
+            pass
+        return item
+
 class SavePostPipeline(object):
     def __init__(self):
         pass
