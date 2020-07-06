@@ -16,7 +16,7 @@ class SavePostPipeline(object):
 
     def open_spider(self, spider):
         self.client = MongoClient(settings.get("CONNECTION_STRING"))
-        self.db = client[settings.get["DB_NAME"]]
+        self.db = self.client[settings.get("DB_NAME")]
 
     def close_spider(self, spider):
         self.client.close()
