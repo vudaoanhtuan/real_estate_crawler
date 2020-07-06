@@ -23,5 +23,5 @@ class SavePostPipeline(object):
 
     def process_item(self, item, spider):
         posts = self.db['post']
-        posts.insert_one(item)
+        posts.insert_one(dict(item))
         return item
